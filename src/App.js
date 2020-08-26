@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import uuid from "uuid";
+// import uuid from "uuid";
 
 import TodoList from "./components/TodoList";
-import TodoItem from "./components/TodoItem";
 import TodoInput from "./components/TodoInput";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { render } from "@testing-library/react";
 
 class App extends Component {
   render() {
