@@ -6,6 +6,9 @@ import TodoInput from "./components/TodoInput";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// 1. We store everything inside App (state, methods)
+// 2. We drilling down to other components
+
 class App extends Component {
   state = {
     id: uuid(),
@@ -37,11 +40,21 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <div className="row">
-            <div className="col-8-md mx-auto">
+            <div className="col-12-md mx-auto">
               <h1>Hello from app</h1>
-              <TodoList />
+              <TodoInput
+                item={this.state.item}
+                handleSubmit={this.handleSubmit}
+                handleChange={this.handleChange}
+                editItem={this.state.editItem}
+              />
 
-              <TodoInput />
+              <TodoList
+                items={this.state.items}
+                handleEdit={this.handleEdit}
+                handleDelete={this.handleDelete}
+                clearList={this.clearList}
+              />
             </div>
           </div>
         </div>
