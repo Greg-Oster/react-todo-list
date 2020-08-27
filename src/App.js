@@ -41,7 +41,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12-md mx-auto">
-              <h1>Where am i</h1>
+              <h1>From video</h1>
               <TodoInput
                 item={this.state.item}
                 handleSubmit={this.handleSubmit}
