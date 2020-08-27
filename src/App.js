@@ -14,12 +14,14 @@ class App extends Component {
       { id: 2, title: "have sex" },
       { id: 33, title: "burger" },
     ],
-    item: "",
+    item: "test",
     editItem: false,
   };
 
-  handleChange = (e) => {
-    console.log("handle change");
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   };
   handleSubmit = (e) => {
     console.log("handle submit");
@@ -44,7 +46,11 @@ class App extends Component {
               <h1>Green Branch</h1>
               <TodoList data={this.state} delete={this.handleDelete} />
 
-              <TodoInput />
+              <TodoInput
+                data={this.state}
+                submit={this.handleSubmit}
+                onchange={this.handleChange}
+              />
             </div>
           </div>
         </div>
