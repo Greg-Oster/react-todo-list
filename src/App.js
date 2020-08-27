@@ -41,14 +41,13 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-12-md mx-auto">
-              <h1>Hello from app</h1>
+              <h1>Where am i</h1>
               <TodoInput
                 item={this.state.item}
                 handleSubmit={this.handleSubmit}
                 handleChange={this.handleChange}
                 editItem={this.state.editItem}
               />
-              =======
               <TodoList
                 items={this.state.items}
                 handleEdit={this.handleEdit}
