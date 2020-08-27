@@ -2,6 +2,19 @@ import React, { Component } from "react";
 
 export default class TodoItem extends Component {
   render() {
-    return <h3>I'm TodoItem</h3>;
+    console.log(this.props.delete);
+    const { title, id } = this.props.propsdata;
+    const { deletef } = this.props;
+    return (
+      <ul>
+        <li>
+          {title}
+          <button type="button" onClick={() => deletef(id)}>
+            delete
+          </button>
+          <button type="button">edit</button>
+        </li>
+      </ul>
+    );
   }
 }

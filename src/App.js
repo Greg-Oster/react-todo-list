@@ -12,6 +12,7 @@ class App extends Component {
     items: [
       { id: 1, title: "wake up" },
       { id: 2, title: "have sex" },
+      { id: 33, title: "burger" },
     ],
     item: "",
     editItem: false,
@@ -25,21 +26,23 @@ class App extends Component {
   };
   clearList = () => {};
   handleDelete = (id) => {
-    console.log(`delete ${id}`);
+    console.log(`i will delete ${id}`);
+    this.setState({
+      items: this.state.items.filter((item) => item.id !== id),
+    });
   };
   handleEdit = (id) => {
     console.log(`edit ${id}`);
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <div className="container">
           <div className="row">
             <div className="col-8-md mx-auto">
               <h1>Green Branch</h1>
-              <TodoList />
+              <TodoList data={this.state} delete={this.handleDelete} />
 
               <TodoInput />
             </div>

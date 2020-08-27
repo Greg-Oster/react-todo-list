@@ -3,10 +3,18 @@ import TodoItem from "./TodoItem";
 
 export default class TodoList extends Component {
   render() {
+    console.log(this.props);
     return (
       <>
         <h2>Hello from TodoList</h2>
-        <TodoItem />
+        {this.props.data.items.map((item) => (
+          <TodoItem
+            propsdata={item}
+            key={item.id}
+            deletef={this.props.delete}
+          />
+        ))}
+        {/* <TodoItem title="info fofo" /> */}
       </>
     );
   }
