@@ -38,7 +38,7 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-8-md mx-auto">
-              <h1>Hello from app</h1>
+              <h1>Green Branch</h1>
               <TodoList />
 
               <TodoInput />
