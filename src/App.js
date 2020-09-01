@@ -38,8 +38,11 @@ class App extends Component {
   };
   handleEdit = (id) => {
     console.log(`edit ${id}`);
-    // изменить инпут на внутреннойсть объекта
-    // const itemData = this.state.
+    // покажем только лист без удаляемого
+    this.setState({
+      items: this.state.items.filter((item) => item.id !== id),
+    });
+    // найдем объект с id редактируемого элемента (но как find работает...)
   };
 
   render() {
