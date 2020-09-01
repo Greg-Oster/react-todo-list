@@ -2,9 +2,9 @@ import React, { Component } from "react";
 
 export default class TodoItem extends Component {
   render() {
-    console.log(this.props.delete);
     const { title, id } = this.props.propsdata;
     const { deletef } = this.props;
+    const { edit } = this.props;
     return (
       <ul>
         <li>
@@ -12,7 +12,9 @@ export default class TodoItem extends Component {
           <button type="button" onClick={() => deletef(id)}>
             delete
           </button>
-          <button type="button">edit</button>
+          <button type="button" onClick={() => edit(id)}>
+            edit
+          </button>
         </li>
       </ul>
     );

@@ -14,17 +14,20 @@ class App extends Component {
       { id: 2, title: "have sex" },
       { id: 33, title: "burger" },
     ],
-    item: "test",
+    item: "",
     editItem: false,
   };
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value,
+      item: event.target.value,
     });
   };
   handleSubmit = (e) => {
-    console.log("handle submit");
+    console.log("handleSumbit clicked");
+    this.setState({
+      items: [...this.state.items, { id: uuid(), title: this.state.item }],
+    });
   };
   clearList = () => {};
   handleDelete = (id) => {
@@ -35,6 +38,8 @@ class App extends Component {
   };
   handleEdit = (id) => {
     console.log(`edit ${id}`);
+    // изменить инпут на внутреннойсть объекта
+    // const itemData = this.state.
   };
 
   render() {
@@ -44,10 +49,14 @@ class App extends Component {
           <div className="row">
             <div className="col-8-md mx-auto">
               <h1>Green Branch</h1>
-              <TodoList data={this.state} delete={this.handleDelete} />
+              <TodoList
+                data={this.state}
+                delete={this.handleDelete}
+                edit={this.handleEdit}
+              />
 
               <TodoInput
-                data={this.state}
+                data={this.state.item}
                 submit={this.handleSubmit}
                 onchange={this.handleChange}
               />

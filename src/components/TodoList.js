@@ -12,6 +12,7 @@ export default class TodoList extends Component {
             propsdata={item}
             key={item.id}
             deletef={this.props.delete}
+            edit={this.props.edit}
           />
         ))}
         {/* <TodoItem title="info fofo" /> */}
