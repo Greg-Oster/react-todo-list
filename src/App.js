@@ -27,6 +27,9 @@ class App extends Component {
     console.log("handleSumbit clicked");
     this.setState({
       items: [...this.state.items, { id: uuid(), title: this.state.item }],
+      editItem: false,
+      item: "",
+      id: uuid(),
     });
   };
   clearList = () => {};
@@ -39,10 +42,21 @@ class App extends Component {
   handleEdit = (id) => {
     console.log(`edit ${id}`);
     // покажем только лист без удаляемого
-    this.setState({
-      items: this.state.items.filter((item) => item.id !== id),
-    });
+
+    const filtredItems = this.state.items.filter((item) => item.id !== id);
+    console.log("filtredItems:");
+    console.log(filtredItems);
     // найдем объект с id редактируемого элемента (но как find работает...)
+    const selected = this.state.items.find((item) => item.id === id);
+    console.log("selected:");
+    console.log(selected);
+    // Так как наш инпут связан с полем item стейта -->
+    this.setState({
+      items: filtredItems,
+      item: selected.title,
+      id: id,
+      editItem: true,
+    });
   };
 
   render() {
@@ -62,6 +76,7 @@ class App extends Component {
                 data={this.state.item}
                 submit={this.handleSubmit}
                 onchange={this.handleChange}
+                editItem={this.state.editItem}
               />
             </div>
           </div>

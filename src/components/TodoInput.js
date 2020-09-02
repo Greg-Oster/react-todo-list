@@ -7,13 +7,18 @@ export default class TodoInput extends Component {
     // const onchange = this.props.onchange;
     // TODO передавать только item а не весь state
     // в одну строчку передавать
-    const { data, submit, onchange } = this.props;
+    const { data, submit, onchange, editItem } = this.props;
     console.log(this.props);
 
     return (
       <>
         <input type="text" name="item" value={data} onChange={onchange} />
-        <button onClick={submit}>Save</button>
+        <button
+          class={editItem ? "btn btn-success" : "btn btn-primary"}
+          onClick={submit}
+        >
+          {editItem ? "Edit" : "Save"}
+        </button>
       </>
     );
   }
